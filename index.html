@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pomodoro</title>
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="shortcut icon" href="assets/images/icon.ico" type="image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="modal fade" id="modalConfiguracoes" tabindex="-1" aria-labelledby="modalConfiguracoesLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConfiguracoesLabel">Configurações</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="tempo_pomodoro" class="form-label mb-3">Pomodoro</label>
+                        <div class="input-group input-group-sm mb-5">
+                            <span class="input-group-text">Minutos</span>
+                            <input type="number" value="12" class="form-control" id="tempo_pomodoro">
+                        </div>
+                        <label for="tempo_pausa_pequena" class="form-label mb-3">Short Break</label>
+                        <div class="input-group input-group-sm mb-5">
+                            <span class="input-group-text">Minutos</span>
+                            <input type="number" value="5" class="form-control" id="tempo_pausa_curta">
+                        </div>
+                        <label for="tempo_pausa_longa" class="form-label mb-3">Long Break</label>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">Minutos</span>
+                            <input type="number" value="10" class="form-control" id="tempo_pausa_longa">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="salvar" data-bs-dismiss="modal" aria-label="Close">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <button type="button" class="configuracoes" data-bs-toggle="modal" data-bs-target="#modalConfiguracoes" onclick="">
+                <img src="./assets/images/engrenagem.svg" alt="" srcset="">
+            </button>
+        </nav>
+        <main>
+            <ul class="list__options">
+                <li><button onclick="mudarTempo(0);" class="btns__tempo">Pomodoro</button></li>
+                <li><button onclick="mudarTempo(1);" class="btns__tempo">Short Break</button></li>
+                <li><button onclick="mudarTempo(2);" class="btns__tempo">Long Break</button></li>
+            </ul>
+            <div class="wrapper">
+                <div class="wrapper__timer">
+                    <timer>00:00</timer>
+                </div>
+            </div>
+            <div>
+                <button id="controlador" class="iniciar">Iniciar</button>
+                <button id="avancar"><img src="./assets/images/avancar.svg" alt=">>" srcset=""></button>
+            </div>
+        </main>
+    </body>
+    <script src="./scripts/script-storage.js"></script>
+    <script src="./scripts/script-pomodoro.js"></script>
+    <script src="./scripts/script.js"></script>
+</html>
